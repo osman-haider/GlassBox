@@ -1,2 +1,12 @@
+[project]
+name = "glassbox"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "pydantic>=2.6",
+]
+
 [tool.vercel]
 entrypoint = "backend.app.main:app"
