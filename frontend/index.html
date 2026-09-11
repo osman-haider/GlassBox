@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlassBox — SmartRecover</title>
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%234C8CFF'/%3E%3C/svg%3E"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="page-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">GlassBox</span>
+      </div>
+      <p class="page-tagline">
+        See what SmartRecover would recover, before you ever book a call.
+      </p>
+    </header>
+
+    <main class="stage">
+      <section class="glass" id="glass" data-state="frosted">
+        <form id="estimate-form" class="estimate-form" novalidate>
+          <div class="field">
+            <label for="monthly-leads">Abandoned leads per month</label>
+            <input
+              type="number"
+              id="monthly-leads"
+              name="monthly_abandoned_leads"
+              min="1"
+              max="1000000"
+              placeholder="e.g. 400"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="average-order-value">Average order value (USD)</label>
+            <input
+              type="number"
+              id="average-order-value"
+              name="average_order_value"
+              min="1"
+              max="1000000"
+              step="0.01"
+              placeholder="e.g. 95"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="funnel-stage">Where most leads drop off</label>
+            <select id="funnel-stage" name="funnel_stage" required>
+              <option value="checkout">Checkout abandonment</option>
+              <option value="quiz">Quiz abandonment</option>
+              <option value="intake">Intake form abandonment</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="follow-up-method">Current follow-up</label>
+            <select id="follow-up-method" name="follow_up_method" required>
+              <option value="none">No follow-up today</option>
+              <option value="email_only">Email only</option>
+              <option value="automated_sms">Automated SMS</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-button" id="submit-button">
+            See my recovery potential
+          </button>
+
+          <p class="form-error" id="form-error" hidden></p>
+        </form>
+
+        <div class="results" id="results" hidden aria-live="polite">
+          <!-- Populated by app.js after a successful estimate -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>
+        Estimates are illustrative, based on SmartRecover's published
+        aggregate benchmarks. Actual results vary by funnel.
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
